@@ -1,0 +1,14 @@
+server:
+  port: 8761
+eureka:
+# 设置当前实例的主机名称
+  instance:
+    hostname: localhost
+  client:
+#   是否将自己注册：默认为true 因为是服务端 功能让别的服务注册服务 这里设置为false
+    register-with-eureka: false
+#   是否拉取注册中心的信息：自己本身就是注册中心
+    fetch-registry: false
+#   设置与eureka的交互地址，查询服务和注册服都需要以来这个地址
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
